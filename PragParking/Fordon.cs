@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PragParking
 {
-    class Fordon
+    public class Fordon
     {
         private string regnr;
 

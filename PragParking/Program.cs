@@ -7,12 +7,16 @@ namespace PragParking
         PHus pHus = new PHus();
         static void Main(string[] args)
         {
-            Console.WriteLine("Vi behöver fordon, varför inte skapa en klass?");
+            // Vi behöver fordon, varför inte skapa en klass?
             Fordon fordon = new Fordon();
-            Console.WriteLine("Vi behöver ett fordon.");
+
+
+            // Vi behöver ett fordon
             fordon.Regnr = "ABC123";
             Console.WriteLine($"Fordon: {fordon.Regnr}");
-            Console.WriteLine("Nu vill vi parkera fordonet");
+
+
+            // Nu vill vi parkera fordonet
             PRuta pRuta = new PRuta();
             pRuta.Nummer = 1;
             pRuta.Ledig = true;
@@ -48,8 +52,8 @@ namespace PragParking
             Console.WriteLine("Dags att parkera ett fordon i P-Huset");
 
             // 1. Hitta ledig plats
-            PHus.hittaLedigPRuta();
-
+            int hittaPlats = PHus.hittaLedigPRuta();
+            Console.WriteLine(hittaPlats);
             // 2. Parkera fordonet
 
             // Repetera fordonsparkering ett antal gånger
