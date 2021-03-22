@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PragParking
 {
-    class PRuta
+    public class PRuta
     {
         private int nummer;
         private bool ledig;

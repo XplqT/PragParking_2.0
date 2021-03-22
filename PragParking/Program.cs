@@ -2,8 +2,9 @@
 
 namespace PragParking
 {
-    class Program
+    public class Program
     {
+        PHus pHus = new PHus();
         static void Main(string[] args)
         {
             Console.WriteLine("Vi behöver fordon, varför inte skapa en klass?");
@@ -34,6 +35,18 @@ namespace PragParking
                 pRuta.Ledig = false;
             }
             Console.WriteLine($"Ruta {pRuta.Nummer} är ledig {pRuta.Ledig} där står {pRuta.Regnr}");
+            Console.WriteLine("Dags att skapa ett P-Hus");
+            PHus.skapaPHus();  //Skapar P-Hus
+            // Kontrollerar att huset skapades
+            foreach (var Ruta in PHus.PRutor)
+            {
+                Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
+            }
+            Console.WriteLine("Dags att parkera ett fordon i P-Huset");
+            // 1. Hitta ledig plats
+            PHus.hittaLedigPRuta();
+            // 2. Parkera fordonet
+
         }
     }
 }
