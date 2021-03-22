@@ -6,16 +6,6 @@ namespace PragParking
 {
     class PHus
     {
-        public List <PRuta> PRutor
-        {
-            get
-            {
-
-            }
-            set
-            {
-
-            }
-        }
+        public List<PRuta> ParkingSpots { get; set; } = new List<PRuta>();
     }
 }
