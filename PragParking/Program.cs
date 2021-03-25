@@ -8,26 +8,34 @@ namespace PragParking
         static void Main(string[] args)
         {
             // Vi behöver fordon, varför inte skapa en klass?
-            Fordon fordon = new Fordon();
+            Fordon fordon = new Fordon(); // Nytt Fordon
+            PRuta pRuta = new PRuta(); // Skapar P-Ruta
+            PHus.skapaPHus();  // Skapar P-Hus
+
+
 
 
             // Vi behöver ett fordon
-            fordon.Regnr = "ABC123";
+            Console.WriteLine("Välkommen till PragueParking.");
+            Console.WriteLine("Skriv in ditt regnr: ");
+            fordon.Regnr = Console.ReadLine();
             Console.WriteLine($"Fordon: {fordon.Regnr}");
 
 
             // Nu vill vi parkera fordonet
-            PRuta pRuta = new PRuta();
             pRuta.Nummer = 1;
             pRuta.Ledig = true;
             Console.WriteLine($"Ruta {pRuta.Nummer} är ledig {pRuta.Ledig}");
+
             if (pRuta.Ledig = true)
-            {
-                pRuta.Regnr = fordon.Regnr;
-                pRuta.Ledig = false;
-            }
+                {
+                    pRuta.Regnr = fordon.Regnr;
+                    pRuta.Ledig = false;
+                }
+
             Console.WriteLine($"Ruta {pRuta.Nummer} är ledig {pRuta.Ledig} där står {pRuta.Regnr}");
-            fordon.Regnr = "DEF456";
+            Console.WriteLine("Skriv in ditt regnr: ");
+            fordon.Regnr = Console.ReadLine();
             Console.WriteLine($"Fordon: {fordon.Regnr}");
             Console.WriteLine("Nu vill vi parkera fordonet");
             pRuta.Nummer = 2;
@@ -39,17 +47,15 @@ namespace PragParking
                 pRuta.Ledig = false;
             }
             Console.WriteLine($"Ruta {pRuta.Nummer} är ledig {pRuta.Ledig} där står {pRuta.Regnr}");
-            Console.WriteLine("Dags att skapa ett P-Hus");
 
-
-            PHus.skapaPHus();  //Skapar P-Hus
+            // Dags att skapa ett P hus
             // Kontrollerar att huset skapades
             foreach (var Ruta in PHus.PRutor)
             {
                 Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
             }
 
-            Console.WriteLine("Dags att parkera ett fordon i P-Huset");
+            // Dags att parkera ett fordon i P-Huset
 
             // 1. Hitta ledig plats
             int hittaPlats = PHus.hittaLedigPRuta();
