@@ -33,29 +33,30 @@ namespace PragParking
                 if (PHus.PRutor[i].Ledig == true)
                 {
                     Console.WriteLine($"Parkeringsplats nr {i+1} är ledig");
+                    Console.WriteLine("Skriv in ditt regnr: ");
                     PHus.PRutor[i].Nummer = i + 1;
                     PHus.PRutor[i].Ledig = false;
-                    PHus.PRutor[i].Regnr = "QWE123";
+                    PHus.PRutor[i].Regnr = Console.ReadLine();
                     Console.WriteLine($"Parkering {PHus.PRutor[i].Nummer} är upptagen och innehåller {PHus.PRutor[i].Regnr}");
                     break;
                 }
                 i++;
             }
             i = 0;
-            while (i < antalRutor)
-            {
-                if (PHus.PRutor[i].Ledig == true)
-                {
-                    Console.WriteLine($"Parkeringsplats nr {i+1} är ledig");
-                    PHus.PRutor[i].Nummer = i + 1;
-                    PHus.PRutor[i].Ledig = false;
-                    PHus.PRutor[i].Regnr = "RTY123";
-                    Console.WriteLine($"Parkering {PHus.PRutor[i].Nummer} är upptagen och innehåller {PHus.PRutor[i].Regnr}");
-                    break;
-                }
-                i++;
-            }
-            Console.ReadKey();
+            //while (i < antalRutor)
+            //{
+            //    if (PHus.PRutor[i].Ledig == true)
+            //    {
+            //        Console.WriteLine($"Parkeringsplats nr {i+1} är ledig");
+            //        Console.WriteLine("Skriv in ditt regnr: ");
+            //        PHus.PRutor[i].Nummer = i + 1;
+            //        PHus.PRutor[i].Ledig = false;
+            //        PHus.PRutor[i].Regnr = Console.ReadLine();
+            //        Console.WriteLine($"Parkering {PHus.PRutor[i].Nummer} är upptagen och innehåller {PHus.PRutor[i].Regnr}");
+            //        break;
+            //    }
+            //    i++;
+            //}
             return i;
         }
     }
