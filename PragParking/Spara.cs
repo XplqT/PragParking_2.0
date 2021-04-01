@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace PragParking
 {
@@ -9,25 +10,61 @@ namespace PragParking
     {
         public static void Save()
         {
-            string filepath = @"C:\Parking\ParkeringsLista.txt";
-
-            List<string> linjer = new List<string>();
-            List<PRuta> rutor = new List<PRuta>();
-
-            linjer = File.ReadAllLines(filepath).ToList();
-            foreach (String linje in linjer)
+            string path = @"C:\Parking\ParkeringsLista.txt";
+            // This text is added only once to the file.
+            if (!File.Exists(path))
             {
-                string[] items = linje.Split(" || ");
-                PRuta p = new PRuta(items[0], items[1]);
-                rutor.Add(p);
+                // Create a file to write to.
+                string[] createText = { "Hello", "And", "Welcome" };
+                File.WriteAllLines(path, createText, Encoding.UTF8);
+                Console.WriteLine("Skapat fil");
             }
 
-
-            foreach (PRuta p in rutor)
+            // This text is always added, making the file longer over time
+            // if it is not deleted.
+            foreach (var Ruta in PHus.PRutor)
             {
-                Console.WriteLine(p);
+                string appendText = $"{Ruta.Nummer};{Ruta.Ledig};{Ruta.Regnr}" + Environment.NewLine;
+                File.AppendAllText(path, appendText, Encoding.UTF8);
+                Console.WriteLine(Ruta.Nummer);
             }
+
+            // Open the file to read from.
+            string[] readText = File.ReadAllLines(path, Encoding.UTF8);
+            foreach (string s in readText)
+            {
+                Console.WriteLine(s);
+            }
+
+            //File.WriteAllLines(sparadfil, (IEnumerable<string>)PHus.PRutor);
+ 
+            
+            //foreach (var Ruta in PHus.PRutor)
+            //{
+            //    Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
+            //    File.WriteAllLines(sparadfil, $"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
+            //}
+            //Console.ReadKey();
+
+
+            //List<string> linjer = new List<string>();
+            //List<PRuta> rutor = new List<PRuta>();
+
+            //linjer = File.ReadAllLines(filepath).ToList();
+            //foreach (String linje in linjer)
+            //{
+            //    string[] items = linje.Split(" || ");
+            //    PRuta p = new PRuta(items[0], items[1]);
+            //    rutor.Add(p);
+            //}
+
+
+            //foreach (PRuta p in rutor)
+            //{
+            //    Console.WriteLine(p);
+            //}
             Console.ReadKey();
+            
         }
     }
 }
