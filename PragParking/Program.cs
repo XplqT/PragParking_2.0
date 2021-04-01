@@ -11,8 +11,8 @@ namespace PragParking
             Fordon fordon = new Fordon(); // Nytt Fordon
             PRuta pRuta = new PRuta(); // Skapar P-Ruta
             PHus.skapaPHus();  // Skapar P-Hus
+            bool cont = true; // för att avsluta menyloopen
 
-            bool cont = true;
 
             while (cont)
             {
@@ -21,19 +21,26 @@ namespace PragParking
                 Console.WriteLine("Vad vill du göra? ");
                 Console.WriteLine("");
                 Console.WriteLine("1)  Parkera fordon");
-                Console.WriteLine("2)  Kolla efter lediga platser");
-                Console.WriteLine("3)  Exit");
+                Console.WriteLine("2)  Hämta fordon");
+                Console.WriteLine("3)  Kolla efter lediga platser");
+                Console.WriteLine("4)  Spara");
+                Console.WriteLine("5)  Exit");
 
                 string menu = Console.ReadLine();
 
                 switch (menu)
                 {
                     case "1":
-                        int hittaPlats = PHus.hittaLedigPRuta();
+                        int hittaPlats = PHus.parkeraFordon();
                         Console.WriteLine(hittaPlats);
                         break;
 
                     case "2":
+                        Console.WriteLine("funktionen är inte klar");
+                        Console.ReadKey();
+                        break;
+
+                    case "3":
                         foreach (var Ruta in PHus.PRutor)
                         {
                             Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
@@ -41,7 +48,12 @@ namespace PragParking
                         Console.ReadKey();
                         break;
 
-                    case "3":
+                    case "4":
+                        Spara.Save();
+                        Console.ReadKey();
+                        break;
+
+                    case "5":
                         cont = false; 
                         break;
 
@@ -51,6 +63,7 @@ namespace PragParking
                         break;
                 }
             }
+
 
 
             // Dags att skapa ett P hus
@@ -75,5 +88,6 @@ namespace PragParking
             //Console.ReadKey();
 
         }
+
     }
 }

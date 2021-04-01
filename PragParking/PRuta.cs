@@ -9,6 +9,9 @@ namespace PragParking
         private int nummer;
         private bool ledig;
         private string regnr;
+        private string nummerString;
+
+
         public int Nummer
         {
             get
@@ -43,6 +46,20 @@ namespace PragParking
                 this.regnr = value;
             }
         }
+
+        public PRuta()
+        {
+
+        }
+
+
+        public PRuta(string nummerString, string regnr)
+        {
+            this.nummerString = this.nummer.ToString();
+            this.regnr = regnr;
+        }
+
     }
+
 
 }
