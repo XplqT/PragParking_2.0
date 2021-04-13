@@ -50,7 +50,6 @@ namespace PragParking
 
                     case "4":
                         Spara.Save();
-                        Console.ReadKey();
                         break;
 
                     case "5":
