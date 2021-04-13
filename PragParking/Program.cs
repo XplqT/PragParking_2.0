@@ -12,6 +12,7 @@ namespace PragParking
             PRuta pRuta = new PRuta(); // Skapar P-Ruta
             PHus.skapaPHus();  // Skapar P-Hus
             bool cont = true; // för att avsluta menyloopen
+            Spara.ReadFromFile();
 
 
             while (cont)

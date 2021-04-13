@@ -8,39 +8,41 @@ namespace PragParking
 {
     public class Spara
     {
-        public static void Save()
-        {
-            string path = @"C:\Parking\ParkeringsLista.txt";
-            // This text is added only once to the file.
-            if (!File.Exists(path))
-            {
-                // Create a file to write to.
-                //string[] createText = { "Hello", "And", "Welcome" };
-                //File.WriteAllLines(path, createText, Encoding.UTF8);
-                //Console.WriteLine("Skapat fil");
-            }
+        public static string path = @"C:\Parking\ParkeringsLista.txt";
 
+        //public static void Save()
+        //{
+        //    // This text is added only once to the file.
+        //    Spara.ReadToFile();
+        //}
+
+        public static void ReadFromFile()
+        {
             // Open the file to read from.
             string[] readText = File.ReadAllLines(path, Encoding.UTF8);
             foreach (string s in readText)
             {
                 Console.WriteLine(s);
             }
+        }
 
-
+        public static void ReadToFile()
+        {
             // This text is always added, making the file longer over time
-            // if it is not deleted.
             File.Delete(path);
             foreach (var Ruta in PHus.PRutor)
             {
                 string appendText = $"{Ruta.Nummer};{Ruta.Ledig};{Ruta.Regnr}" + Environment.NewLine;
                 File.AppendAllText(path, appendText, Encoding.UTF8);
             }
+        }
+
+            
 
 
             //File.WriteAllLines(sparadfil, (IEnumerable<string>)PHus.PRutor);
- 
-            
+
+
             //foreach (var Ruta in PHus.PRutor)
             //{
             //    Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
@@ -64,9 +66,7 @@ namespace PragParking
             //foreach (PRuta p in rutor)
             //{
             //    Console.WriteLine(p);
-            //}
-            Console.ReadKey();
-            
-        }
+            //}            
+       
     }
 }
