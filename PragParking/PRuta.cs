@@ -53,12 +53,17 @@ namespace PragParking
         }
 
 
-        public PRuta(string nummerString, string regnr)
+        public PRuta(string regnr)
         {
             this.nummerString = this.nummer.ToString();
             this.regnr = regnr;
         }
 
+
+        public override string ToString()
+        {
+            return "Ledig: " + ledig + " RegNr: " + regnr;
+        }
     }
 
 

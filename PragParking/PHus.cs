@@ -9,6 +9,7 @@ namespace PragParking
         public static int antalRutor { get; set; } = 10;
         public static List<PRuta> PRutor { get; set; } = new List<PRuta>(antalRutor);
 
+
         // skapar en parkeringsplats med 10 rutor
         public static void skapaPHus()
         {

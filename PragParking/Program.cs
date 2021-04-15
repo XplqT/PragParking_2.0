@@ -44,13 +44,14 @@ namespace PragParking
                     case "3":
                         foreach (var Ruta in PHus.PRutor)
                         {
-                            Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
+                            // Console.WriteLine($"Ruta {Ruta.Nummer} är ledig {Ruta.Ledig}");
+                            Spara.ReadFromFile();
                         }
                         Console.ReadKey();
                         break;
 
                     case "4":
-                        Spara.Save();
+                        Spara.ReadToFile();
                         break;
 
                     case "5":

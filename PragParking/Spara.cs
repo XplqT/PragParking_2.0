@@ -12,23 +12,40 @@ namespace PragParking
 
         //public static void Save()
         //{
-        //    // This text is added only once to the file.
         //    Spara.ReadToFile();
         //}
+
 
         public static void ReadFromFile()
         {
             // Open the file to read from.
-            string[] readText = File.ReadAllLines(path, Encoding.UTF8);
-            foreach (string s in readText)
+            //string[] readText = File.ReadAllLines(path, Encoding.UTF8);
+            //foreach (string s in readText)
+            //{
+            //    Console.WriteLine(s);
+            //}
+
+            List<string> lines = new List<string>();
+            lines = File.ReadAllLines(path).ToList();
+            List<PRuta> PRutor = new List<PRuta>();
+
+            lines = File.ReadAllLines(path).ToList();
+            foreach(string line in lines)
             {
-                Console.WriteLine(s);
+                string[] items = line.Split(" | ");
+                PRuta p = new PRuta(items[0]);
+                PRutor.Add(p);
+            }
+
+            foreach(PRuta p in PRutor)
+            {
+                Console.WriteLine(p);
             }
         }
 
         public static void ReadToFile()
         {
-            // This text is always added, making the file longer over time
+            // deletes the old file and creates a new file and then saves the parking list to that file.
             File.Delete(path);
             foreach (var Ruta in PHus.PRutor)
             {
